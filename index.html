@@ -7,7 +7,6 @@ $(document).ready(function(){
   $("button").click(function(){
   $.ajax({
          url: "https://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2?BusStopCode=55031&ServiceNo=163",
-         data: {signature: authHeader },
          type: "GET",
          beforeSend: function(xhr){xhr.setRequestHeader('AccountKey', 'zTo7xnBQS92DZOwLkQAjhA==');},
          success: function() { alert('Success!' + authHeader); }
