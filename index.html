@@ -8,6 +8,9 @@ $(document).ready(function(){
   $.ajax({
          url: "https://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2?BusStopCode=55031&ServiceNo=163",
          type: "GET",
+         xhrFields: {
+          withCredentials: true
+         },
          beforeSend: function(xhr){xhr.setRequestHeader('AccountKey', 'zTo7xnBQS92DZOwLkQAjhA==');},
          success: function() { alert('Success!' + authHeader); }
       });
