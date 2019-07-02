@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("button").click(function(){
-    $.get("https://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2?BusStopCode=55031&ServiceNo=163", function(data, status){
-      alert("Data: " + data + "\nStatus: " + status);
-    });
-  });
-});
-</script>
-</head>
 <body>
-
-<button>Send an HTTP GET request to a page and get the result back</button>
-
+<h2>Using the XMLHttpRequest Object</h2>
+<div id="demo">
+<button type="button" onclick="loadXMLDoc()">Change Content</button>
+</div>
+<script>
+function loadXMLDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "https://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2?BusStopCode=55031&ServiceNo=163", true);
+  xhttp.withCredentials = true
+  xhttp.setRequestHeader("AccountKey", "zTo7xnBQS92DZOwLkQAjhA==");
+  xhttp.send();
+}
+</script>
 </body>
 </html>
